@@ -67,7 +67,7 @@ mod tests {
 apiVersion: v1
 kind: Secret
 metadata:
-  name: \"test-name\"
+  name: test-name
   namespace: ~
 type: Opaque
 data:
