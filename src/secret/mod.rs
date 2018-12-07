@@ -31,14 +31,14 @@ impl Secret {
                 namespace,
             },
             resource_type: "Opaque".to_string(),
-            data: Secret::get_secrets(source),
+            data: Secret::get_secrets(&source),
         }
     }
 
-    fn get_secrets(source: HashMap<String, String>) -> HashMap<String, String> {
+    fn get_secrets(source: &HashMap<String, String>) -> HashMap<String, String> {
         source.iter()
             // Remove keys that don't start SK_
-            .filter(|&(ref key, ref _value)| key.get(..3).unwrap_or_else(|| "") == "SK_".to_string())
+            .filter(|&(ref key, ref _value)| key.get(..3).unwrap_or_else(|| "") == "SK_")
             // Remove SK_ from the key and base64 encode the value
             .map(|(key, value)| (String::from(&key[3..]), base64::encode(&value)))
             .collect()
