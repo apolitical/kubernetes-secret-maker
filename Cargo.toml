@@ -16,4 +16,4 @@ circle-ci = { repository = "apolitical/kubernetes-secret-maker", branch = "maste
 base64 = "^0.10.1"
 serde = "^1.0"
 serde_derive = "^1.0"
-serde_yaml = "^0.8.9"
+serde_yaml = "^0.8.12"
